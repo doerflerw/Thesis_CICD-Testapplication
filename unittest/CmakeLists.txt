@@ -1,0 +1,15 @@
+cmake_minimum_required (VERSION 3.8)
+
+# Project's name
+project(unittest)
+
+enable_testing()
+
+# Add source to this project's executable.
+add_executable (run_unittest "unittest_1.cpp" "FixtureTest.h")
+
+target_link_libraries (run_unittest gtest)
+add_dependencies(run_unittest gtest)
+
+
+# TODO: Add tests and install targets if needed.
