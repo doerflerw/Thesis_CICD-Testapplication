@@ -33,6 +33,8 @@ TEST_F(IntegerFunctionTest, Factorial) {
 	EXPECT_EQ(40320, Factorial(8));
 }
 
+#ifdef CS_OFF
+
 TEST_F(IntegerFunctionTest, IsPrime) {
 	// Tests negative input.
 	EXPECT_FALSE(IsPrime(-1));
@@ -51,6 +53,10 @@ TEST_F(IntegerFunctionTest, IsPrime) {
 	EXPECT_FALSE(IsPrime(6));
 	EXPECT_TRUE(IsPrime(23));
 }
+
+
+#endif // CS_OFF
+
 
 TEST(TestCase_1, Potenz)
 {
