@@ -11,9 +11,11 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 
 # CMakeLists.txt of the following folders will be included
-include_directories(${PROJECT_SOURCE_DIR}/test)
-include_directories(${PROJECT_SOURCE_DIR}/unittest)
 include_directories(${PROJECT_SOURCE_DIR}/app)
+include_directories(${PROJECT_SOURCE_DIR}/unittest)
+include_directories(${PROJECT_SOURCE_DIR}/integrationtest)
+include_directories(${PROJECT_SOURCE_DIR}/regressiontest)
+include_directories(${PROJECT_SOURCE_DIR}/lib)
 include_directories(${PROJECT_SOURCE_DIR}/lib/googletest)
 include_directories(${PROJECT_SOURCE_DIR}/lib/googletest/include)
 
@@ -21,7 +23,8 @@ include_directories(${PROJECT_SOURCE_DIR}/lib/googletest/include)
 # Include sub-projects.
 add_subdirectory ("app")
 add_subdirectory ("lib")
-add_subdirectory ("test")
 add_subdirectory ("unittest")
+add_subdirectory ("integrationtest")
+add_subdirectory ("regressiontest")
 
 

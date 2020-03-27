@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "gtest/gtest.h"
-#include "FixtureTest.h"
+#include "integrationtest.h"
 #include "app.h"
 
 
