@@ -9,7 +9,7 @@
 
 
 // Fixture
-// Alle IntegerFunctionTests übernehmen automatisch die Logik von QuickTest durch Vererbung
+// Alle IntegerFunctionTests bernehmen automatisch die Logik von QuickTest durch Vererbung
 class IntegerFunctionTest : public QuickTest {
 	// Kann Leer bleiben
 };
@@ -57,7 +57,10 @@ TEST_F(IntegerFunctionTest, IsPrime) {
 
 #endif // CS_OFF
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1727006c4ce63697294410420d8fb64dee613c9f
 TEST(TestCase_1, Potenz)
 {
 	EXPECT_EQ(1000, cubic(10));
