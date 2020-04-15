@@ -1,5 +1,13 @@
-// unittest_example1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*
+	Unittests - Includes Tests of single functions/modules
+
+	This file was created as part of my Bachelorthesis to demonstrate the integration of Unittests inside an application.
+	It contains a class based on an Example-Fixture from "FixtureTest.h" which demonstrates a basic Fixture of Google-Test.
+	There are also some Testcases which are dependand on a Compiler-Switch.
+	Due to the fact that this Applications use-case is to only demonstrate the integration into the CICD-Pipeline, there will only be some basic testing included.
+
+	Author: Wolfgang Dörfler
+*/
 
 #include <iostream>
 #include "gtest/gtest.h"
@@ -7,17 +15,30 @@
 #include "app.h"
 
 
+CICDFixture::CICDFixture() {}
 
-// Fixture
-// Alle IntegerFunctionTests bernehmen automatisch die Logik von QuickTest durch Vererbung
-class IntegerFunctionTest : public QuickTest {
-	// Kann Leer bleiben
+// Create new class based on a Fixture
+// All "UnitTest"-Objects are going to inherit the characteristics of the Fixture "CICDFixture"
+class UnitTest : public CICDFixture {
+
 };
 
-// TEST(..)		- Normaler Tests
+// TEST(..)		- Normal Tests
 // TEST_F(..)	- Fixture Test
 
-TEST_F(IntegerFunctionTest, Factorial) {
+
+// Do some basic testing to demonstrate Google-Test usage
+TEST(TestCase_1, Potenz)
+{
+	EXPECT_EQ(100000, cubic(10, 5));
+}
+
+TEST(TestCase_2, Addition) {
+	EXPECT_EQ(4, 2 + 2);
+}
+
+// Do some basic Fixture-testing to demonstrate Google-Test and Fixture usage
+TEST_F(UnitTest, Factorial) {
 	// Tests factorial of negative numbers.
 	EXPECT_EQ(1, Factorial(-5));
 	EXPECT_EQ(1, Factorial(-1));
@@ -33,49 +54,27 @@ TEST_F(IntegerFunctionTest, Factorial) {
 	EXPECT_EQ(40320, Factorial(8));
 }
 
+// Some Testcases were put inside Compiler-Switched code for testing-purposes
 #ifdef CS_OFF
 
-TEST_F(IntegerFunctionTest, IsPrime) {
-	// Tests negative input.
-	EXPECT_FALSE(IsPrime(-1));
-	EXPECT_FALSE(IsPrime(-2));
-	EXPECT_FALSE(IsPrime(INT_MIN));
+TEST_F(UnitTest, primeNumber) {
+	// Tests negative inputs
+	EXPECT_FALSE(primeNumber(-1));
+	EXPECT_FALSE(primeNumber(-2));
+	EXPECT_FALSE(primeNumber(INT_MIN));
 
-	// Tests some trivial cases.
-	EXPECT_FALSE(IsPrime(0));
-	EXPECT_FALSE(IsPrime(1));
-	EXPECT_TRUE(IsPrime(2));
-	EXPECT_TRUE(IsPrime(3));
+	// Tests some trivial cases
+	EXPECT_FALSE(primeNumber(0));
+	EXPECT_FALSE(primeNumber(1));
+	EXPECT_TRUE(primeNumber(2));
+	EXPECT_TRUE(primeNumber(3));
 
-	// Tests positive input.
-	EXPECT_FALSE(IsPrime(4));
-	EXPECT_TRUE(IsPrime(5));
-	EXPECT_FALSE(IsPrime(6));
-	EXPECT_TRUE(IsPrime(23));
+	// Tests positive inputs
+	EXPECT_FALSE(primeNumber(4));
+	EXPECT_TRUE(primeNumber(5));
+	EXPECT_FALSE(primeNumber(6));
+	EXPECT_TRUE(primeNumber(23));
 }
 
 
 #endif // CS_OFF
-
-
-TEST(TestCase_1, Potenz)
-{
-	EXPECT_EQ(1000, cubic(10));
-}
-
-TEST(TestCase_2, Addition) {
-	EXPECT_EQ(4, 2 + 2);
-}
-
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

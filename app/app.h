@@ -1,16 +1,32 @@
-﻿// CICD_Example.h : Include file for standard system include files,
-// or project specific include files.
+﻿// CICD_Example.h 
 
 #pragma once
 #include <cmath>
 #include <stdio.h>
 
-double cubic(double d)
+
+using namespace std;
+
+class ExampleClass {
+public:
+	double length;   // Length of a box
+	double breadth;  // Breadth of a box
+	double height;   // Height of a box
+};
+
+
+/*	Function raises parameter 1 by the power of parameter 2
+	Parameter: double b, double p
+*/
+double cubic(double b, double p)
 {
-	printf("\n\nCubic Ausgabe: %f", d);
-	return pow(d, 3);
+	printf("\n\nGiven base: %f, given Power %f", b, p);
+	return pow(b, p);
 }
 
+/*	Function calculates the factorial (Fakultät) of all integers smaller than the given parameter
+	Parameter: int n
+*/
 int Factorial(int n) {
 	int result = 1;
 	for (int i = 1; i <= n; i++) {
@@ -20,35 +36,32 @@ int Factorial(int n) {
 	return result;
 }
 
+/*	Function does some basic calculation based on given INT-Parameter for testing purposes.
+	Parameter: int 
+*/
 int CoverageTest(int n) {
 	int result = 1;
 	for (int i = 1; i <= n; i++) {
 		result *= i;
 	}
-
 	return result;
 }
 
-// Returns true if and only if n is a prime number.
-bool IsPrime(int n) {
-	// Trivial case 1: small numbers
+/*	Function returns true if given INT-Parameter is a prime number.
+	Parameter: int
+*/
+bool primeNumber(int n) {
+	// catch small and even numbers
 	if (n <= 1) return false;
-
-	// Trivial case 2: even numbers
 	if (n % 2 == 0) return n == 2;
 
-	// Now, we have that n is odd and n >= 3.
-
 	// Try to divide n by every odd number i, starting from 3
-	for (int i = 3; ; i += 2) {
-		// We only have to try i up to the square root of n
+	for (int i = 3; ;i += 2) {
+		// counter only has to be up to the square root of n
 		if (i > n / i) break;
-
-		// Now, we have i <= n/i < n.
-		// If n is divisible by i, n is not prime.
+		// test possible division by i
 		if (n % i == 0) return false;
 	}
-
-	// n has no integer factor in the range (1, n), and thus is prime.
+	// if there was no break until now, the given numer is a prime number
 	return true;
 }

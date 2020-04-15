@@ -1,5 +1,13 @@
-// unittest_example1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*
+	Integrationtests - Includes Tests which are expected to run without failures
+
+	This file was created as part of my Bachelorthesis to demonstrate the integration of Regressiontests inside an application.
+	It contains a Fixture which interacts with CanEasy and includes some example tests.
+	Due to the fact that this Applications use-case is to only demonstrate the integration into the CICD-Pipeline, there wont be any more testing of CanEasy.
+	Has to run on a Remote-Station, so the connection to CanEasy can be established.
+
+	Author: Wolfgang Dörfler
+*/
 
 #include <iostream>
 #include "gtest/gtest.h"
@@ -10,14 +18,14 @@
 
 // Fixture
 // Alle IntegerFunctionTests bernehmen automatisch die Logik von QuickTest durch Vererbung
-class IntegerFunctionTest : public QuickTest {
+class IntegrationTest : public QuickTest {
 	// Kann Leer bleiben
 };
 
 // TEST(..)		- Normaler Tests
 // TEST_F(..)	- Fixture Test
 
-TEST_F(IntegerFunctionTest, Factorial) {
+TEST_F(IntegrationTest, Factorial) {
 	// Tests factorial of negative numbers.
 	EXPECT_EQ(1, Factorial(-5));
 	EXPECT_EQ(1, Factorial(-1));
@@ -37,21 +45,21 @@ TEST_F(IntegerFunctionTest, Factorial) {
 
 TEST_F(IntegerFunctionTest, IsPrime) {
 	// Tests negative input.
-	EXPECT_FALSE(IsPrime(-1));
-	EXPECT_FALSE(IsPrime(-2));
-	EXPECT_FALSE(IsPrime(INT_MIN));
+	EXPECT_FALSE(primeNumber(-1));
+	EXPECT_FALSE(primeNumber(-2));
+	EXPECT_FALSE(primeNumber(INT_MIN));
 
 	// Tests some trivial cases.
-	EXPECT_FALSE(IsPrime(0));
-	EXPECT_FALSE(IsPrime(1));
-	EXPECT_TRUE(IsPrime(2));
-	EXPECT_TRUE(IsPrime(3));
+	EXPECT_FALSE(primeNumber(0));
+	EXPECT_FALSE(primeNumber(1));
+	EXPECT_TRUE(primeNumber(2));
+	EXPECT_TRUE(primeNumber(3));
 
 	// Tests positive input.
-	EXPECT_FALSE(IsPrime(4));
-	EXPECT_TRUE(IsPrime(5));
-	EXPECT_FALSE(IsPrime(6));
-	EXPECT_TRUE(IsPrime(23));
+	EXPECT_FALSE(primeNumber(4));
+	EXPECT_TRUE(primeNumber(5));
+	EXPECT_FALSE(primeNumber(6));
+	EXPECT_TRUE(primeNumber(23));
 }
 
 
@@ -60,7 +68,9 @@ TEST_F(IntegerFunctionTest, IsPrime) {
 
 TEST(TestCase_1, Potenz)
 {
-	EXPECT_EQ(1000, cubic(10));
+	EXPECT_EQ(100000, cubic(10, 5));
+	EXPECT_EQ(100000, cubic(10, 5));
+	EXPECT_EQ(100000, cubic(10, 5));
 }
 
 TEST(TestCase_2, Addition) {
