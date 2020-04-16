@@ -2,7 +2,7 @@
 	Unittests - Includes Tests of single functions/modules
 
 	This file was created as part of my Bachelorthesis to demonstrate the integration of Unittests inside an application.
-	It contains a class based on an Example-Fixture from "FixtureTest.h" which demonstrates a basic Fixture of Google-Test.
+	It interacts with an Example-Fixture from "FixtureTest.h" which demonstrates a basic Fixture of Google-Test.
 	There are also some Testcases which are dependand on a Compiler-Switch.
 	Due to the fact that this Applications use-case is to only demonstrate the integration into the CICD-Pipeline, there will only be some basic testing included.
 
@@ -28,9 +28,10 @@ class UnitTest : public CICDFixture {
 
 
 // Do some basic testing to demonstrate Google-Test usage
-TEST(TestCase_1, Potenz)
+TEST(TestCase_1, RaisePower)
 {
 	EXPECT_EQ(100000, cubic(10, 5));
+	EXPECT_GT(5000, cubic(10, 5));
 }
 
 TEST(TestCase_2, Addition) {
@@ -54,7 +55,7 @@ TEST_F(UnitTest, Factorial) {
 	EXPECT_EQ(40320, Factorial(8));
 }
 
-// Some Testcases were put inside Compiler-Switched code for testing-purposes
+// Some Testcases were put inside Compiler-Switch-dependant code for testing-purposes
 #ifdef CS_OFF
 
 TEST_F(UnitTest, primeNumber) {

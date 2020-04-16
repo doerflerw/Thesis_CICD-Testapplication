@@ -1,5 +1,5 @@
 /*
-	FixtureTest - Includes a basic Fixture-Example to showcase its usability
+	FixtureTest - Includes a basic Fixture-Example to showcase its usability and use it for integrationtesting
 
 	This file was created as part of my Bachelorthesis to demonstrate the integration of a basic Google-Test Fixture inside an application.
 	It contains a basic Example-Fixture from Google-Test.
@@ -12,7 +12,7 @@
 
 #include "gtest/gtest.h"
 
-// Fixture example for CICD-Class testing
+// Fixture example for CICD testing
 class CICDFixture : public testing::Test {
 protected:
 

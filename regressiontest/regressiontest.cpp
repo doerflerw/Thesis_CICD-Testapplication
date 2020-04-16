@@ -2,7 +2,7 @@
 	Regressiontests - Includes Tests which are expected to run without failures
 
 	This file was created as part of my Bachelorthesis to demonstrate the integration of Regressiontests inside an application.
-	It contains a Fixture which interacts with CanEasy and includes some example tests.
+	It it interacts with a Fixture which then interacts with CanEasy and includes some example tests.
 	Due to the fact that this Applications use-case is to only demonstrate the integration into the CICD-Pipeline, there wont be any more testing of CanEasy.
 	Has to run on a Remote-Station, so the connection to CanEasy can be established.
 
