@@ -9,7 +9,10 @@ Some code is Compiler-Switch-dependant to demonstrate the usage of Compiler-Swit
 Due to the fact that this Applications use-case is to only demonstrate the integration into the CICD-Pipeline, the created testcases and testsuites are concentrate on basic interactions.
 	
 To build and use this Application on a Remote-Station:
-	1. Clone the repository to a specific location
-	2. Add the name of the Remote-Station and the Source-Directory of the Application to the "buildSource"-Directory of the "build_config.py" script located in "/library/pipeline/" inside the automation-framework-directory
+
+1. Clone the repository to a specific location
+
+2. Add the name of the Remote-Station and the Source-Directory of the Application to the "buildSource"-Directory of the "build_config.py" script located in "/library/pipeline/" inside the automation-framework-directory
+
 
 Author: Wolfgang Dörfler
