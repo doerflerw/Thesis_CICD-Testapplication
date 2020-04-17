@@ -12,7 +12,7 @@ To build and use this Application on a Remote-Station:
 
 1. Clone the repository to a specific location
 
-2. Add the name of the Remote-Station and the Source-Directory of the Application to the "buildSource"-Directory of the "build_config.py" script located in "/library/pipeline/" inside the automation-framework-directory
+2. Add the name of the Remote-Station and the Source-Directory of the Testapplication to the "buildSource"-Directory of the "build_config.py" script located in "/library/pipeline/" inside the automation-framework-directory
 
 
 Author: Wolfgang Dörfler
