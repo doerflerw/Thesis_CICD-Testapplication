@@ -29,7 +29,7 @@ class UnitTest : public CICDFixture {
 TEST(TestCase_1, RaisePower)
 {
 	EXPECT_EQ(100000, cubic(10, 5));
-	EXPECT_GT(5000, cubic(10, 5));
+	EXPECT_GT(150000, cubic(10, 5));
 }
 
 TEST(TestCase_2, Addition) {
