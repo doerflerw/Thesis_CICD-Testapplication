@@ -16,10 +16,7 @@
 class IntegrationTest : public testing::Test {
 protected:
 
-	IntegrationTest();
-
-	virtual void SetUp();
-
-	virtual void TearDown();
-
+/*	
+	Can be filled with specified functions
+	*/
 };

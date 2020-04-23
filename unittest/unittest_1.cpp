@@ -15,8 +15,6 @@
 #include "app.h"
 
 
-CICDFixture::CICDFixture() {}
-
 // Create new class based on a Fixture
 // All "UnitTest"-Objects are going to inherit the characteristics of the Fixture "CICDFixture"
 class UnitTest : public CICDFixture {
